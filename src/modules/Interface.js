@@ -26,4 +26,40 @@ function createProjectList(projects) {
   return project_element;
 }
 
-export { createProjectList };
+function createTaskList(project) {
+  const task_list = document.createElement("div");
+  task_list.classList.add("task_list");
+
+  project.tasks.forEach((t) => {
+    console.log(t.title);
+    // make an element containing the task
+    const task = document.createElement("div");
+    task.innerText = t.title;
+
+    task_list.appendChild(task);
+    // append it to the task_element
+  });
+
+  console.log(task_list);
+
+  return task_list;
+}
+
+function populateTaskList(project) {
+  const task_element = document.getElementById("tasks");
+  // clear it out by default
+  task_element.innerHTML = "";
+
+  project.tasks.forEach((t) => {
+    if (!t.finished) {
+      const task = document.createElement("div");
+      task.innerText = t.title;
+
+      task_element.appendChild(task);
+    }
+
+    // append it to the task_element
+  });
+}
+
+export { createProjectList, createTaskList, populateTaskList };

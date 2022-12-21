@@ -4,4 +4,8 @@ export default class Project {
     this.dueDate = dueDate;
     this.tasks = [];
   }
+
+  unfinished_tasks() {
+    return true;
+  }
 }

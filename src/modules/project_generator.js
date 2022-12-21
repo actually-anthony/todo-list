@@ -1,27 +1,22 @@
-// update projects with tasks based on UI
-// i guess this is more like the inbetween of task and projects
+// update default_projects with tasks based on UI
+// i guess this is more like the inbetween of task and default_projects
 
 import Project from "./project";
 import Task from "./task";
 
-const projects = createDefaultProjects();
+const default_projects = createDefaultProjects();
 const tasks = TESTcreateTodayTasks();
 
 function createDefaultProjects() {
-  const default_names = ["Today", "Overdue"];
+  const default_names = ["Today", "Abc_name"];
 
   // make project classes
-  const projects = [];
+  const default_projects = [];
 
-  default_names.forEach((name) => {
-    if (name == "Overdue") {
-      projects.push(new Project(name, "2022/12/18"));
-    } else {
-      projects.push(new Project(name, "2022/12/20"));
-    }
-  });
+  default_projects.push(new Project(default_names[0], "2022/12/20"));
+  default_projects.push(new Project(default_names[1], "2022/12/19"));
 
-  return projects;
+  return default_projects;
 }
 
 function TESTcreateTodayTasks() {
@@ -33,15 +28,27 @@ function TESTcreateTodayTasks() {
     tasks.push(new Task(task_name, "2022/12/20"));
   });
 
-  tasks.push(new Task("Eat oreos", "2022/12/18"));
+  tasks.push(new Task("Eat oreos", "2022/12/19", true));
 
   return tasks;
 }
 
-// put task into appropriate project
-function loadTasks() {
+function loadAllProject() {
+  const all_project = new Project("All");
+
+  console.log(all_project);
+
   tasks.forEach((task) => {
-    projects.forEach((project) => {
+    all_project.tasks.push(task);
+  });
+
+  default_projects.push(all_project);
+}
+
+// put task into appropriate project
+function load_default_projects() {
+  tasks.forEach((task) => {
+    default_projects.forEach((project) => {
       // compare dates
       if (task.dueDate == project.dueDate) {
         project.tasks.push(task);
@@ -50,7 +57,22 @@ function loadTasks() {
     });
   });
 
-  return projects;
+  loadAllProject();
+
+  return default_projects;
 }
 
-export { loadTasks };
+// gets the tasks from project
+
+// i mean i can just get it based on the name?
+function getTasks(project_name, abc) {
+  const selected_project = abc.filter((project) => {
+    return project.name == project_name;
+  });
+
+  console.log(selected_project);
+
+  return selected_project.tasks;
+}
+
+export { load_default_projects, getTasks };
