@@ -1,0 +1,23 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  margin: 0;
+}
+
+.main {
+  width: 100vw;
+  background-color: #1e1e1e;
+  display: flex;
+}
+
+.projects {
+  background-color: antiquewhite;
+  width: 20vw;
+  margin: 0;
+}
