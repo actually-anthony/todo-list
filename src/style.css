@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+@media (prefers-color-scheme: dark) {
+}
+
+/* going to add dark color by default */
+:root {
+  --main-bg-color: #1e1e1e;
+  --project-font-size: 1em;
+}
+
 body {
   height: 100vh;
   display: flex;
@@ -16,8 +25,33 @@ body {
   display: flex;
 }
 
-.projects {
-  background-color: antiquewhite;
-  width: 20vw;
+#projects {
+  background-color: #191919;
   margin: 0;
+}
+
+.project_list {
+  width: 15vw;
+
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.project {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--project-font-size);
+  color: white;
+  background-color: #191919;
+  padding: 10px;
+  cursor: pointer;
+
+  border-radius: 10px;
+  border-style: black 2px dotted;
+}
+
+.project:hover {
+  color: white;
+  background-color: #474747;
 }

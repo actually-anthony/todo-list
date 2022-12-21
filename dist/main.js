@@ -16,7 +16,7 @@
   \*************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"*,\\n*::before,\\n*::after {\\n  box-sizing: border-box;\\n}\\n\\nbody {\\n  height: 100vh;\\n  display: flex;\\n  margin: 0;\\n}\\n\\n.main {\\n  width: 100vw;\\n  background-color: #1e1e1e;\\n  display: flex;\\n}\\n\\n.projects {\\n  background-color: antiquewhite;\\n  width: 20vw;\\n  margin: 0;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://todo/./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"*,\\n*::before,\\n*::after {\\n  box-sizing: border-box;\\n}\\n\\n@media (prefers-color-scheme: dark) {\\n}\\n\\n/* going to add dark color by default */\\n:root {\\n  --main-bg-color: #1e1e1e;\\n  --project-font-size: 1em;\\n}\\n\\nbody {\\n  height: 100vh;\\n  display: flex;\\n  margin: 0;\\n}\\n\\n.main {\\n  width: 100vw;\\n  background-color: #1e1e1e;\\n  display: flex;\\n}\\n\\n#projects {\\n  background-color: #191919;\\n  margin: 0;\\n}\\n\\n.project_list {\\n  width: 15vw;\\n\\n  display: flex;\\n  flex-direction: column;\\n  padding: 10px;\\n}\\n\\n.project {\\n  display: flex;\\n  justify-content: space-between;\\n  font-size: var(--project-font-size);\\n  color: white;\\n  background-color: #191919;\\n  padding: 10px;\\n  cursor: pointer;\\n\\n  border-radius: 10px;\\n  border-style: black 2px dotted;\\n}\\n\\n.project:hover {\\n  color: white;\\n  background-color: #474747;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://todo/./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -116,7 +116,47 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nconsole.log(\"hi\");\n\n\n//# sourceURL=webpack://todo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_project_generator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/project_generator */ \"./src/modules/project_generator.js\");\n/* harmony import */ var _modules_interface__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/interface */ \"./src/modules/interface.js\");\n\n\n\n\n// gets default tasks\nlet projects = (0,_modules_project_generator__WEBPACK_IMPORTED_MODULE_1__.loadTasks)();\n\nconst projects_element = document.getElementById(\"projects\");\n\nprojects_element.appendChild((0,_modules_interface__WEBPACK_IMPORTED_MODULE_2__.createProjectList)(projects));\nconsole.log(\"helllo\");\n\n\n//# sourceURL=webpack://todo/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/interface.js":
+/*!**********************************!*\
+  !*** ./src/modules/interface.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createProjectList\": () => (/* binding */ createProjectList)\n/* harmony export */ });\nfunction createProjectList(projects) {\n  // parent element\n  const project_element = document.createElement(\"div\");\n  project_element.classList.add(\"project_list\");\n\n  // loop through projects and append\n  // TODO: replace _ with a name\n  projects.forEach((project) => {\n    const _ = document.createElement(\"div\");\n    _.classList.add(\"project\");\n\n    const project_name = document.createElement(\"div\");\n    project_name.innerText = project.name;\n\n    const task_amount = document.createElement(\"div\");\n    task_amount.innerText = project.tasks.length;\n\n    _.appendChild(project_name);\n    _.appendChild(task_amount);\n\n    // add number of tasks due\\\n\n    project_element.appendChild(_);\n  });\n\n  return project_element;\n}\n\n\n\n\n//# sourceURL=webpack://todo/./src/modules/interface.js?");
+
+/***/ }),
+
+/***/ "./src/modules/project.js":
+/*!********************************!*\
+  !*** ./src/modules/project.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Project)\n/* harmony export */ });\nclass Project {\n  constructor(name, dueDate = null) {\n    this.name = name;\n    this.dueDate = dueDate;\n    this.tasks = [];\n  }\n}\n\n\n//# sourceURL=webpack://todo/./src/modules/project.js?");
+
+/***/ }),
+
+/***/ "./src/modules/project_generator.js":
+/*!******************************************!*\
+  !*** ./src/modules/project_generator.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"loadTasks\": () => (/* binding */ loadTasks)\n/* harmony export */ });\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ \"./src/modules/project.js\");\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task */ \"./src/modules/task.js\");\n// update projects with tasks based on UI\n// i guess this is more like the inbetween of task and projects\n\n\n\n\nconst projects = createDefaultProjects();\nconst tasks = TESTcreateTodayTasks();\n\nfunction createDefaultProjects() {\n  const default_names = [\"Today\", \"Overdue\"];\n\n  // make project classes\n  const projects = [];\n\n  default_names.forEach((name) => {\n    if (name == \"Overdue\") {\n      projects.push(new _project__WEBPACK_IMPORTED_MODULE_0__[\"default\"](name, \"2022/12/18\"));\n    } else {\n      projects.push(new _project__WEBPACK_IMPORTED_MODULE_0__[\"default\"](name, \"2022/12/20\"));\n    }\n  });\n\n  return projects;\n}\n\nfunction TESTcreateTodayTasks() {\n  const test_tasks_names = [\"first task\", \"second_task\"];\n\n  const tasks = [];\n\n  test_tasks_names.forEach((task_name) => {\n    tasks.push(new _task__WEBPACK_IMPORTED_MODULE_1__[\"default\"](task_name, \"2022/12/20\"));\n  });\n\n  tasks.push(new _task__WEBPACK_IMPORTED_MODULE_1__[\"default\"](\"Eat oreos\", \"2022/12/18\"));\n\n  return tasks;\n}\n\n// put task into appropriate project\nfunction loadTasks() {\n  tasks.forEach((task) => {\n    projects.forEach((project) => {\n      // compare dates\n      if (task.dueDate == project.dueDate) {\n        project.tasks.push(task);\n      }\n      // TODO: else to add overdue tasks\n    });\n  });\n\n  return projects;\n}\n\n\n\n\n//# sourceURL=webpack://todo/./src/modules/project_generator.js?");
+
+/***/ }),
+
+/***/ "./src/modules/task.js":
+/*!*****************************!*\
+  !*** ./src/modules/task.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Task)\n/* harmony export */ });\nclass Task {\n  constructor(title, dueDate = null, description = null, priority = null) {\n    this.title = title;\n    this.dueDate = dueDate;\n    this.description = description;\n    this.priority = priority;\n  }\n}\n\n\n//# sourceURL=webpack://todo/./src/modules/task.js?");
 
 /***/ })
 
