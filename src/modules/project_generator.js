@@ -63,17 +63,4 @@ function load_default_projects() {
   return default_projects;
 }
 
-// gets the tasks from project
-
-// i mean i can just get it based on the name?
-function getTasks(project_name, abc) {
-  const selected_project = abc.filter((project) => {
-    return project.name == project_name;
-  });
-
-  console.log(selected_project);
-
-  return selected_project.tasks;
-}
-
-export { load_default_projects, getTasks };
+export { load_default_projects };

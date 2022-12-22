@@ -4,13 +4,15 @@ function task_header(project) {
 
   const title = document.createElement("div");
   title.innerText = project.name;
+  title.classList.add("title");
 
   header.appendChild(title);
 
-  var x = document.createElement("INPUT");
-  x.setAttribute("type", "text");
+  var input = document.createElement("INPUT");
+  input.setAttribute("type", "text");
+  input.setAttribute("placeholder", `Add task to "${project.name}"`);
 
-  header.appendChild(x);
+  header.appendChild(input);
 
   return header;
 }

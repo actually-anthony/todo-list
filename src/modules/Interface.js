@@ -57,4 +57,37 @@ function populateTaskList(project) {
   task_element.appendChild(task_list);
 }
 
-export { createProjectList, populateTaskList };
+function updateTaskHeader(project) {
+  const title = document.querySelector(".title");
+  title.textContent = project.name;
+
+  const input = document.querySelector(".task_input");
+  input.setAttribute("placeholder", `Add task to "${project.name}"`);
+}
+
+function createTaskHeader(project) {
+  const header = document.createElement("div");
+  header.classList.add("task_header");
+
+  const title = document.createElement("div");
+  title.innerText = project.name;
+  title.classList.add("title");
+
+  header.appendChild(title);
+
+  var input = document.createElement("INPUT");
+  input.setAttribute("type", "text");
+  input.classList.add("task_input");
+  input.setAttribute("placeholder", `Add task to "${project.name}"`);
+
+  header.appendChild(input);
+
+  return header;
+}
+
+export {
+  createProjectList,
+  populateTaskList,
+  updateTaskHeader,
+  createTaskHeader,
+};
