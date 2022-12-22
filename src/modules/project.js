@@ -5,7 +5,11 @@ export default class Project {
     this.tasks = [];
   }
 
-  unfinished_tasks() {
-    return true;
+  get unfinished_tasks() {
+    const unfinished = this.tasks.filter((task) => {
+      return task.finished == false;
+    });
+
+    return unfinished.length;
   }
 }

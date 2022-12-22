@@ -13,7 +13,10 @@ function createProjectList(projects) {
     project_name.innerText = project.name;
 
     const task_amount = document.createElement("div");
-    task_amount.innerText = project.tasks.length;
+
+    if (project.unfinished_tasks > 0) {
+      task_amount.innerText = project.unfinished_tasks;
+    }
 
     _.appendChild(project_name);
     _.appendChild(task_amount);
@@ -39,8 +42,6 @@ function createTaskList(project) {
     task_list.appendChild(task);
     // append it to the task_element
   });
-
-  console.log(task_list);
 
   return task_list;
 }
