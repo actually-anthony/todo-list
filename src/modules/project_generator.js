@@ -28,11 +28,12 @@ function TESTcreateTodayTasks() {
     tasks.push(new Task(task_name, "2022/12/20"));
   });
 
-  tasks.push(new Task("Eat oreos", "2022/12/19", true));
+  tasks.push(new Task("Eat oreos", "2022/12/19"));
 
   return tasks;
 }
 
+// project that contains all tasks
 function loadAllProject() {
   const all_project = new Project("All");
 

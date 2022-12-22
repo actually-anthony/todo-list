@@ -10,6 +10,7 @@
 /* going to add dark color by default */
 :root {
   --main-bg-color: #1e1e1e;
+  --highlight-color: #414141;
   --project-font-size: 1em;
 }
 
@@ -38,7 +39,8 @@ body {
   padding: 10px;
 }
 
-.project {
+.project,
+.task {
   display: flex;
   justify-content: space-between;
   font-size: var(--project-font-size);
@@ -54,4 +56,35 @@ body {
 .project:hover {
   color: white;
   background-color: #474747;
+}
+
+#tasks {
+  width: 50vw;
+  border-style: dotted dashed solid double;
+  border-color: white;
+  padding: 1vw;
+}
+
+.task {
+  color: white;
+  height: 5vh;
+}
+
+.task:hover {
+  background-color: #474747;
+}
+
+.task_header {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.task_header > input {
+  color: white;
+  background-color: #292929;
+  height: 5vh;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
 }

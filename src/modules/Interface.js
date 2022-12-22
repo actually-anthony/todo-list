@@ -29,38 +29,32 @@ function createProjectList(projects) {
   return project_element;
 }
 
-function createTaskList(project) {
-  const task_list = document.createElement("div");
-  task_list.classList.add("task_list");
-
-  project.tasks.forEach((t) => {
-    console.log(t.title);
-    // make an element containing the task
-    const task = document.createElement("div");
-    task.innerText = t.title;
-
-    task_list.appendChild(task);
-    // append it to the task_element
-  });
-
-  return task_list;
-}
-
 function populateTaskList(project) {
   const task_element = document.getElementById("tasks");
+  let task_list;
   // clear it out by default
-  task_element.innerHTML = "";
+
+  if (document.querySelector(".task_list") == null) {
+    task_list = document.createElement("div");
+    task_list.classList.add("task_list");
+  } else {
+    task_list = document.querySelector(".task_list");
+    task_list.innerHTML = "";
+  }
 
   project.tasks.forEach((t) => {
     if (!t.finished) {
       const task = document.createElement("div");
+      task.classList.add("task");
       task.innerText = t.title;
 
-      task_element.appendChild(task);
+      task_list.appendChild(task);
     }
 
     // append it to the task_element
   });
+
+  task_element.appendChild(task_list);
 }
 
-export { createProjectList, createTaskList, populateTaskList };
+export { createProjectList, populateTaskList };
