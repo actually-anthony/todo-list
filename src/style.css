@@ -39,8 +39,7 @@ body {
   padding: 10px;
 }
 
-.project,
-.task {
+.project {
   display: flex;
   justify-content: space-between;
   font-size: var(--project-font-size);
@@ -66,8 +65,14 @@ body {
 }
 
 .task {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
   color: white;
+  background-color: #1e1e1e;
   height: 5vh;
+  border-radius: 2px;
+  border-bottom: 1px solid #474747;
 }
 
 .task:hover {
@@ -83,8 +88,21 @@ body {
 .task_header > input {
   color: white;
   background-color: #292929;
-  height: 5vh;
+  height: 6vh;
   margin-top: 10px;
   margin-bottom: 15px;
-  border-radius: 10px;
+  border-radius: 5px;
+  text-indent: 10px;
+  font-size: 1rem;
+  border: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none !important;
+  border: 1px solid #456eee;
+}
+
+.task_header > div {
+  font-size: 2rem;
 }
