@@ -29,6 +29,45 @@ function createProjectList(projects) {
   return project_element;
 }
 
+function updateProjectList(projects) {
+  const project_list = document.querySelector(".project_list");
+  project_list.innerHTML = "";
+
+  projects.forEach((project) => {
+    const _ = document.createElement("div");
+    _.classList.add("project");
+
+    const project_name = document.createElement("div");
+    project_name.innerText = project.name;
+
+    const task_amount = document.createElement("div");
+
+    if (project.unfinished_tasks > 0) {
+      task_amount.innerText = project.unfinished_tasks;
+    }
+
+    _.appendChild(project_name);
+    _.appendChild(task_amount);
+
+    // add number of tasks due\
+
+    project_list.appendChild(_);
+  });
+
+  // if you know the index of the project, then you can target the current .project_list
+}
+
+function activateProject(e) {
+  // deactivate the other projects
+  const projects = document.querySelectorAll(".project");
+
+  projects.forEach((project) => {
+    project.classList.remove("active");
+  });
+
+  e.classList.add("active");
+}
+
 function populateTaskList(project) {
   const task_element = document.getElementById("tasks");
   let task_list;
@@ -55,6 +94,11 @@ function populateTaskList(project) {
   });
 
   task_element.appendChild(task_list);
+}
+
+function erase_task_input() {
+  const task_input = document.querySelector(".task_input");
+  task_input.value = "";
 }
 
 function updateTaskHeader(project) {
@@ -90,4 +134,7 @@ export {
   populateTaskList,
   updateTaskHeader,
   createTaskHeader,
+  activateProject,
+  erase_task_input,
+  updateProjectList,
 };

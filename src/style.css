@@ -54,7 +54,8 @@ body {
   border-style: black 2px dotted;
 }
 
-.project:hover {
+.project:hover,
+.project.active {
   color: white;
   background-color: #474747;
 }

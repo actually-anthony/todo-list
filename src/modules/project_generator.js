@@ -1,5 +1,4 @@
 // update default_projects with tasks based on UI
-// i guess this is more like the inbetween of task and default_projects
 
 import Project from "./project";
 import Task from "./task";
@@ -36,8 +35,6 @@ function TESTcreateTodayTasks() {
 // project that contains all tasks
 function loadAllProject() {
   const all_project = new Project("All");
-
-  console.log(all_project);
 
   tasks.forEach((task) => {
     all_project.tasks.push(task);
