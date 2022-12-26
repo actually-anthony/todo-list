@@ -7,6 +7,7 @@ import {
   updateTaskHeader,
   activateProject,
   erase_task_input,
+  updateTasksRemaining,
 } from "./modules/interface";
 
 import { add_task, update_all_project } from "./modules/project_master";
@@ -34,6 +35,7 @@ task_input.addEventListener("keypress", function (e) {
     populateTaskList(activeProject);
     erase_task_input();
     update_all_project(projects);
+    updateTasksRemaining(projects);
   }
 });
 

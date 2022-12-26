@@ -1,3 +1,7 @@
+// TODO: Make this into a class ?
+// new interface (project_list, task_list)
+// well tbh, a lot of the variables can be put at the top
+
 function createProjectList(projects) {
   // parent element
   const project_element = document.createElement("div");
@@ -13,6 +17,7 @@ function createProjectList(projects) {
     project_name.innerText = project.name;
 
     const task_amount = document.createElement("div");
+    task_amount.classList.add("task_amount");
 
     if (project.unfinished_tasks > 0) {
       task_amount.innerText = project.unfinished_tasks;
@@ -29,32 +34,14 @@ function createProjectList(projects) {
   return project_element;
 }
 
-function updateProjectList(projects) {
-  const project_list = document.querySelector(".project_list");
-  project_list.innerHTML = "";
+function updateTasksRemaining(projects) {
+  // index should line up to projects
+  const project_list = document.querySelectorAll(".project");
 
-  projects.forEach((project) => {
-    const _ = document.createElement("div");
-    _.classList.add("project");
-
-    const project_name = document.createElement("div");
-    project_name.innerText = project.name;
-
-    const task_amount = document.createElement("div");
-
-    if (project.unfinished_tasks > 0) {
-      task_amount.innerText = project.unfinished_tasks;
-    }
-
-    _.appendChild(project_name);
-    _.appendChild(task_amount);
-
-    // add number of tasks due\
-
-    project_list.appendChild(_);
+  projects.forEach((project, index) => {
+    const task_amount = project_list[index].querySelector(".task_amount");
+    task_amount.innerText = project.unfinished_tasks;
   });
-
-  // if you know the index of the project, then you can target the current .project_list
 }
 
 function activateProject(e) {
@@ -136,5 +123,5 @@ export {
   createTaskHeader,
   activateProject,
   erase_task_input,
-  updateProjectList,
+  updateTasksRemaining,
 };
