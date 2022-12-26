@@ -70,11 +70,26 @@ function populateTaskList(project) {
 
   project.tasks.forEach((t) => {
     if (!t.finished) {
-      const task = document.createElement("div");
-      task.classList.add("task");
-      task.innerText = t.title;
+      const task_container = document.createElement("div");
+      const task_title = document.createElement("div");
+      const checkbox = document.createElement("input");
 
-      task_list.appendChild(task);
+      const left_task = document.createElement("div");
+      left_task.classList.add("left-side");
+
+      task_container.classList.add("task");
+
+      task_title.classList.add("task_title");
+      task_title.innerText = t.title;
+
+      checkbox.setAttribute("type", "checkbox");
+      checkbox.classList.add("checkmark");
+
+      left_task.appendChild(checkbox);
+      left_task.appendChild(task_title);
+      task_container.appendChild(left_task);
+
+      task_list.appendChild(task_container);
     }
 
     // append it to the task_element

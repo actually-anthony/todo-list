@@ -70,7 +70,6 @@ body {
 
 .task {
   display: flex;
-  justify-content: space-between;
   padding: 10px;
   color: white;
   background-color: #1e1e1e;
@@ -109,4 +108,17 @@ input:focus {
 
 .task_header > div {
   font-size: 2rem;
+}
+
+/* too lazy to make my own custom checkmark */
+.checkmark {
+  height: 1rem;
+  width: 1rem;
+  accent-color: #474747;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
