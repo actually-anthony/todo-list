@@ -15,13 +15,21 @@ import Task from "./task";
 function get_all_tasks(projects) {
   let tasks = [];
 
+  const all_project = projects.filter((project) => {
+    return project.name == "All";
+  })[0];
+
   projects.forEach((project) => {
-    // TODO: fix bug where you can add a task that's only in all but not anywhere else
-    // it's not counting when you add a task to all
     if (project.name != "All") {
       tasks = tasks.concat(project.tasks);
     }
   });
+
+  const tasks_added_to_all = all_project.tasks.filter((task) => {
+    return !tasks.includes(task);
+  });
+
+  tasks = tasks.concat(tasks_added_to_all);
 
   return tasks;
 }
