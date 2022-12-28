@@ -62,7 +62,6 @@ body {
 
 #tasks {
   width: 50vw;
-
   border-left: 1px solid #474747;
   border-right: 1px solid #474747;
   padding: 1vw;
@@ -76,6 +75,13 @@ body {
   height: 5vh;
   border-radius: 2px;
   border-bottom: 1px solid #474747;
+}
+
+.task_list {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  max-height: 80vh;
 }
 
 .task:hover {
