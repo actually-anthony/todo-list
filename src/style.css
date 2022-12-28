@@ -2,6 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,7 +35,7 @@ body {
 }
 
 .project_list {
-  width: 15vw;
+  min-width: 15vw;
 
   display: flex;
   flex-direction: column;
@@ -44,6 +45,7 @@ body {
 .project {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: var(--project-font-size);
   color: white;
   background-color: #191919;
@@ -67,12 +69,13 @@ body {
   padding: 1vw;
 }
 
-.task {
+.task,
+.test_task {
   display: flex;
   padding: 10px;
   color: white;
   background-color: #1e1e1e;
-  height: 5vh;
+  height: 2.5rem;
   border-radius: 2px;
   border-bottom: 1px solid #474747;
 }
@@ -97,7 +100,7 @@ body {
 .task_header > input {
   color: white;
   background-color: #292929;
-  height: 6vh;
+  height: 2rem;
   margin-top: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
@@ -106,8 +109,11 @@ body {
   border: none;
 }
 
-textarea:focus,
-input:focus {
+.task_amount {
+  font-size: 0.7rem;
+}
+
+.task_input:focus {
   outline: none !important;
   border: 1px solid #456eee;
 }
