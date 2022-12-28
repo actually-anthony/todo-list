@@ -2,6 +2,8 @@
 // new interface (project_list, task_list)
 // well tbh, a lot of the variables can be put at the top
 
+import { update_all_project } from "./project_master";
+
 function createProjectList(projects) {
   // parent element
   const project_element = document.createElement("div");
@@ -36,11 +38,12 @@ function createProjectList(projects) {
 
 function updateTasksRemaining(projects) {
   // index should line up to projects
+  console.log(projects);
   const project_list = document.querySelectorAll(".project");
 
   projects.forEach((project, index) => {
     const task_amount = project_list[index].querySelector(".task_amount");
-    task_amount.innerText = project.unfinished_tasks;
+    task_amount.innerText = project.tasks.length;
   });
 }
 
@@ -55,7 +58,7 @@ function activateProject(e) {
   e.classList.add("active");
 }
 
-function populateTaskList(project) {
+function populateTaskList(active_project, projects) {
   const task_element = document.getElementById("tasks");
   let task_list;
   // clear it out by default
@@ -68,8 +71,9 @@ function populateTaskList(project) {
     task_list.innerHTML = "";
   }
 
-  project.tasks.forEach((t) => {
+  active_project.tasks.forEach((t) => {
     if (!t.finished) {
+      console.log(t);
       const task_container = document.createElement("div");
       const task_title = document.createElement("div");
       const checkbox = document.createElement("input");
@@ -83,7 +87,7 @@ function populateTaskList(project) {
       task_title.innerText = t.title;
 
       checkbox.setAttribute("type", "checkbox");
-      checkbox.classList.add("checkmark");
+      checkbox.classList.add("check-box");
 
       left_task.appendChild(checkbox);
       left_task.appendChild(task_title);
@@ -96,6 +100,36 @@ function populateTaskList(project) {
   });
 
   task_element.appendChild(task_list);
+  add_checkbox_listeners(active_project, projects);
+}
+
+function add_checkbox_listeners(active_project, projects) {
+  const check_boxes = document.querySelectorAll(".check-box");
+
+  check_boxes.forEach((box) => {
+    box.addEventListener("click", (e) => {
+      const tasks = document.querySelectorAll(".task");
+      const selected_task = e.target.parentNode.parentNode;
+
+      tasks.forEach((task, index) => {
+        if (task === selected_task) {
+          // active_project.tasks[index].finished = true;
+          console.dir(projects);
+          active_project.tasks.splice(index, 1);
+          console.dir(projects);
+
+          populateTaskList(active_project, projects);
+          // TODO: updateTasksRemaining is not working properly
+          // Update project_master to add all tasks removing removed tasks
+          update_all_project(projects);
+
+          updateTasksRemaining(projects);
+
+          // need to update tasks remaining
+        }
+      });
+    });
+  });
 }
 
 function erase_task_input() {

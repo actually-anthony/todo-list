@@ -24,10 +24,10 @@ function TESTcreateTodayTasks() {
   const tasks = [];
 
   test_tasks_names.forEach((task_name) => {
-    tasks.push(new Task(task_name, "2022/12/20"));
+    tasks.push(new Task(task_name, "Today", "2022/12/20"));
   });
 
-  tasks.push(new Task("Eat oreos", "2022/12/19"));
+  tasks.push(new Task("Eat oreos", "Abc_name", "2022/12/19"));
 
   return tasks;
 }
@@ -48,7 +48,7 @@ function load_default_projects() {
   tasks.forEach((task) => {
     default_projects.forEach((project) => {
       // compare dates
-      if (task.dueDate == project.dueDate) {
+      if (task.origin_project == project.name) {
         project.tasks.push(task);
       }
       // TODO: else to add overdue tasks

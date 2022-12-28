@@ -111,7 +111,7 @@ input:focus {
 }
 
 /* too lazy to make my own custom checkmark */
-.checkmark {
+.check-box {
   height: 1rem;
   width: 1rem;
   accent-color: #474747;
