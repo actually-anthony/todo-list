@@ -93,10 +93,10 @@ function populateTaskList(active_project, projects) {
       left_task.appendChild(task_title);
       task_container.appendChild(left_task);
 
+      // demo
+
       task_list.appendChild(task_container);
     }
-
-    // append it to the task_element
   });
 
   task_element.appendChild(task_list);
