@@ -37,6 +37,7 @@ function get_all_tasks(projects) {
   return tasks;
 }
 
+// from 'All' project not all projects
 function update_all_project(projects) {
   // remove tasks from all that are from other origin projects but not existing anymore
 
@@ -47,8 +48,6 @@ function update_all_project(projects) {
   projects.forEach((project) => {
     if (project.name == "All") {
       project.tasks = get_all_tasks(projects);
-
-      project.tasks.forEach((task) => {});
     }
   });
 }
@@ -59,7 +58,9 @@ function add_task(project, task) {
 }
 
 function finish_task(project, task_index) {
-  project.tasks[task_index].finshed = true;
+  // TODO: Delete tasks from appropriate project when deleting from all
+
+  project.tasks[task_index].finished = true;
 }
 
 // TODO: Deleting tasks after being checked

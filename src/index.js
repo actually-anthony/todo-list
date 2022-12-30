@@ -1,5 +1,4 @@
 import "./style.css";
-import { load_default_projects } from "./modules/project_generator";
 import {
   createProjectList,
   populateTaskList,
@@ -11,10 +10,10 @@ import {
 } from "./modules/interface";
 
 import { add_task, update_all_project } from "./modules/project_master";
+import { generateProjects, storeProjects } from "./modules/storage";
 
 // gets default tasks
-let projects = load_default_projects();
-console.log(projects);
+let projects = generateProjects();
 
 const projects_element = document.getElementById("projects");
 const task_elements = document.getElementById("tasks");
@@ -24,6 +23,7 @@ projects_element.appendChild(createProjectList(projects));
 task_elements.appendChild(createTaskHeader(projects[0]));
 
 populateTaskList(projects[0], projects);
+updateTasksRemaining(projects);
 
 add_project_listeners();
 
@@ -38,10 +38,11 @@ task_input.addEventListener("keypress", function (e) {
     erase_task_input();
     update_all_project(projects);
     updateTasksRemaining(projects);
-    console.log(tasks);
+    storeProjects(projects);
   }
 });
 
+// TODO: move to itnerface.js
 function add_project_listeners() {
   const elements = document.querySelectorAll(".project");
 
@@ -49,7 +50,7 @@ function add_project_listeners() {
     element.addEventListener("click", function (e) {
       activeProject = projects[i];
       populateTaskList(activeProject, projects);
-      updateTaskHeader(projects[i]);
+      updateTaskHeader(activeProject);
       activateProject(e.target, activeProject);
     });
   });

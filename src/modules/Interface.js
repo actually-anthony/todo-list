@@ -3,6 +3,7 @@
 // well tbh, a lot of the variables can be put at the top
 
 import { update_all_project } from "./project_master";
+import { storeProjects } from "./storage";
 
 function createProjectList(projects) {
   // parent element
@@ -93,7 +94,7 @@ function populateTaskList(active_project, projects) {
       left_task.appendChild(task_title);
       task_container.appendChild(left_task);
 
-      // demo
+      //
 
       task_list.appendChild(task_container);
     }
@@ -115,6 +116,8 @@ function add_checkbox_listeners(active_project, projects) {
         if (task === selected_task) {
           // active_project.tasks[index].finished = true;
           console.dir(projects);
+
+          // TODO: move this to project_master and implement All deleting
           active_project.tasks.splice(index, 1);
           console.dir(projects);
 
@@ -124,6 +127,7 @@ function add_checkbox_listeners(active_project, projects) {
           update_all_project(projects);
 
           updateTasksRemaining(projects);
+          storeProjects(projects);
 
           // need to update tasks remaining
         }
