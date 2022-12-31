@@ -2,7 +2,7 @@
 // new interface (project_list, task_list)
 // well tbh, a lot of the variables can be put at the top
 
-import { update_all_project } from "./project_master";
+import { update_all_project, finish_task } from "./project_master";
 import { storeProjects } from "./storage";
 
 function createProjectList(projects) {
@@ -39,7 +39,6 @@ function createProjectList(projects) {
 
 function updateTasksRemaining(projects) {
   // index should line up to projects
-  console.log(projects);
   const project_list = document.querySelectorAll(".project");
 
   projects.forEach((project, index) => {
@@ -74,7 +73,6 @@ function populateTaskList(active_project, projects) {
 
   active_project.tasks.forEach((t) => {
     if (!t.finished) {
-      console.log(t);
       const task_container = document.createElement("div");
       const task_title = document.createElement("div");
       const checkbox = document.createElement("input");
@@ -114,22 +112,11 @@ function add_checkbox_listeners(active_project, projects) {
 
       tasks.forEach((task, index) => {
         if (task === selected_task) {
-          // active_project.tasks[index].finished = true;
-          console.dir(projects);
-
-          // TODO: move this to project_master and implement All deleting
-          active_project.tasks.splice(index, 1);
-          console.dir(projects);
-
+          finish_task(active_project, projects, index);
           populateTaskList(active_project, projects);
-          // TODO: updateTasksRemaining is not working properly
-          // Update project_master to add all tasks removing removed tasks
           update_all_project(projects);
-
           updateTasksRemaining(projects);
           storeProjects(projects);
-
-          // need to update tasks remaining
         }
       });
     });

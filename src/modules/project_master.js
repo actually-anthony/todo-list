@@ -57,14 +57,30 @@ function add_task(project, task) {
   project.tasks.push(addedTask);
 }
 
-function finish_task(project, task_index) {
-  // TODO: Delete tasks from appropriate project when deleting from all
+function finish_task(active_project, projects, task_index) {
+  if (active_project.name == "All") {
+    let task = active_project.tasks[task_index];
 
-  project.tasks[task_index].finished = true;
+    active_project.tasks.splice(task_index, 1);
+
+    if (task.origin_project != "All") {
+      // new all project
+      projects.forEach((p) => {
+        // select the correct corresponding project
+        if (p.name == task.origin_project) {
+          p.tasks.forEach((t, i) => {
+            if (t === task) {
+              p.tasks.splice(i, 1);
+            }
+          });
+        }
+      });
+    }
+  } else {
+    active_project.splice(task_index, 1);
+  }
 }
-
-// TODO: Deleting tasks after being checked
 
 // TODO: Adding descriptions to tasks
 
-export { add_task, update_all_project };
+export { add_task, update_all_project, finish_task };

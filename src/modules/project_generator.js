@@ -7,7 +7,7 @@ const default_projects = createDefaultProjects();
 const tasks = TESTcreateTodayTasks();
 
 function createDefaultProjects() {
-  const default_names = ["Today", "Abc_name"];
+  const default_names = ["Today", "Overdue"];
 
   // make project classes
   const default_projects = [];
@@ -27,7 +27,7 @@ function TESTcreateTodayTasks() {
     tasks.push(new Task(task_name, "Today", "2022/12/20"));
   });
 
-  tasks.push(new Task("Eat oreos", "Abc_name", "2022/12/19"));
+  tasks.push(new Task("Eat oreos", "Overdue", "2022/12/19"));
 
   return tasks;
 }
