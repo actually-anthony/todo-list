@@ -77,7 +77,7 @@ function finish_task(active_project, projects, task_index) {
       });
     }
   } else {
-    active_project.splice(task_index, 1);
+    active_project.tasks.splice(task_index, 1);
   }
 }
 
