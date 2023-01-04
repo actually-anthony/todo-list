@@ -71,7 +71,7 @@ function populateTaskList(active_project, projects) {
     task_list.innerHTML = "";
   }
 
-  active_project.tasks.forEach((t) => {
+  active_project.tasks.forEach((t, i) => {
     if (!t.finished) {
       const task_container = document.createElement("div");
       const task_title = document.createElement("div");
@@ -92,7 +92,10 @@ function populateTaskList(active_project, projects) {
       left_task.appendChild(task_title);
       task_container.appendChild(left_task);
 
-      //
+      // add description listener to task_container
+      task_container.addEventListener("click", () => {
+        updateDescription(t, i);
+      });
 
       task_list.appendChild(task_container);
     }
@@ -100,6 +103,8 @@ function populateTaskList(active_project, projects) {
 
   task_element.appendChild(task_list);
   add_checkbox_listeners(active_project, projects);
+
+  // update descriptions here too?
 }
 
 function add_checkbox_listeners(active_project, projects) {
@@ -121,6 +126,58 @@ function add_checkbox_listeners(active_project, projects) {
       });
     });
   });
+}
+
+// when you click on a task
+function updateDescription(task, index) {
+  const container = document.getElementById("task-desc");
+  container.innerHTML = "";
+
+  const checkBox = document.createElement("input");
+  checkBox.setAttribute("type", "checkbox");
+
+  const taskName = document.createElement("input");
+  taskName.setAttribute("type", "text");
+  taskName.classList.add("taskNameDesc");
+  taskName.setAttribute("placeholder", "What needs doing?");
+  taskName.value = task.title;
+
+  // should probably make this its own function
+  const taskDescription = document.createElement("input");
+  taskDescription.setAttribute("type", "text");
+  taskDescription.classList.add("taskDescription");
+
+  // probbaly have to check if there's anything in there first
+  taskDescription.value = task.description;
+  taskDescription.setAttribute("placeholder", "Description");
+
+  // container.appendChild(checkBox);
+  taskName.addEventListener("input", (e) => {
+    // descriptionUpdateTaskTitle(e.value)
+    task.title = e.target.value;
+
+    let active_task = document.querySelectorAll(".task_title")[index];
+    active_task.innerText = e.target.value;
+  });
+
+  container.appendChild(taskName);
+  container.appendChild(taskDescription);
+}
+
+//
+function descriptionUpdateTaskTitle(title) {
+  // add a new even listener every time a description is up?
+  // const title_input = document.querySelector(".taskNameDesc");
+}
+
+// when you click on a project
+function resetDescription(active_project) {
+  const description = document.getElementById("task-desc");
+  description.innerHTML = "";
+
+  if (active_project.tasks.length > 0) {
+    description.innerText = "Click on a task to view details";
+  }
 }
 
 function erase_task_input() {
@@ -164,4 +221,6 @@ export {
   activateProject,
   erase_task_input,
   updateTasksRemaining,
+  resetDescription,
+  updateDescription,
 };

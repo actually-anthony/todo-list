@@ -6,6 +6,7 @@ import {
   updateTaskHeader,
   activateProject,
   erase_task_input,
+  resetDescription,
   updateTasksRemaining,
 } from "./modules/interface";
 
@@ -49,9 +50,11 @@ function add_project_listeners() {
   elements.forEach((element, i) => {
     element.addEventListener("click", function (e) {
       activeProject = projects[i];
+      update_all_project(projects);
       populateTaskList(activeProject, projects);
       updateTaskHeader(activeProject);
       activateProject(e.target, activeProject);
+      resetDescription(activeProject);
     });
   });
 }

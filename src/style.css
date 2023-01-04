@@ -63,7 +63,7 @@ body {
 }
 
 #tasks {
-  width: 50vw;
+  min-width: 50vw;
   border-left: 1px solid #474747;
   border-right: 1px solid #474747;
   padding: 1vw;
@@ -100,7 +100,7 @@ body {
 .task_header > input {
   color: white;
   background-color: #292929;
-  height: 2rem;
+  height: 2.5rem;
   margin-top: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
@@ -115,6 +115,7 @@ body {
 
 .task_input:focus {
   outline: none !important;
+  background-color: var(--main-bg-color);
   border: 1px solid #456eee;
 }
 
@@ -133,4 +134,32 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+#task-desc {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-bg-color);
+  color: white;
+
+  width: 100%;
+  padding: 1vw;
+}
+
+.taskNameDesc,
+.taskDescription {
+  background-color: var(--main-bg-color);
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.taskNameDesc:focus,
+.taskDescription:focus {
+  outline: none !important;
+}
+
+.taskDescription {
+  font-size: 0.9rem;
 }
