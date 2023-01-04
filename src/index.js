@@ -25,6 +25,7 @@ task_elements.appendChild(createTaskHeader(projects[0]));
 
 populateTaskList(projects[0], projects);
 updateTasksRemaining(projects);
+document.querySelectorAll(".project")[0].classList.add("active");
 
 add_project_listeners();
 
@@ -53,7 +54,8 @@ function add_project_listeners() {
       update_all_project(projects);
       populateTaskList(activeProject, projects);
       updateTaskHeader(activeProject);
-      activateProject(e.target, activeProject);
+      storeProjects(projects);
+      activateProject(e.target);
       resetDescription(activeProject);
     });
   });

@@ -143,8 +143,8 @@ function updateDescription(task, index) {
   taskName.value = task.title;
 
   // should probably make this its own function
-  const taskDescription = document.createElement("input");
-  taskDescription.setAttribute("type", "text");
+  const taskDescription = document.createElement("textarea");
+  // taskDescription.setAttribute("type", "text");
   taskDescription.classList.add("taskDescription");
 
   // probbaly have to check if there's anything in there first
@@ -153,11 +153,13 @@ function updateDescription(task, index) {
 
   // container.appendChild(checkBox);
   taskName.addEventListener("input", (e) => {
-    // descriptionUpdateTaskTitle(e.value)
     task.title = e.target.value;
-
     let active_task = document.querySelectorAll(".task_title")[index];
     active_task.innerText = e.target.value;
+  });
+
+  taskDescription.addEventListener("input", (e) => {
+    task.description = e.target.value;
   });
 
   container.appendChild(taskName);

@@ -162,4 +162,6 @@ body {
 
 .taskDescription {
   font-size: 0.9rem;
+  height: 100%;
+  resize: none;
 }
